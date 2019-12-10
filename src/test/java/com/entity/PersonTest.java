@@ -85,23 +85,16 @@ public class PersonTest {
 
             person.setMarriage(true);
             System.out.println( "check MarriageInt, except 1");
-            assertEquals(1,person.getMarriageInt());
+            assertEquals(new Integer(1),person.getMarriage());
             System.out.println( "check true");
 
 
-            System.out.println( "check Marriage, except true");
-            assertEquals(true,person.isMarriage());
-            System.out.println( "check true");
+
 
 
             person.setMarriage(false);
-            System.out.println( "check MarriageInt, except 0");
-            assertEquals(0,person.getMarriageInt());
-            System.out.println( "check true");
-
-
             System.out.println( "check Marriage, except false");
-            assertEquals(false,person.isMarriage());
+            assertEquals(new Integer(0),person.getMarriage());
             System.out.println( "check true");
 
         }catch(Exception e){
@@ -165,26 +158,3 @@ public class PersonTest {
     }
 }
 
-
-/*
-
-
-
-
-
-
-
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Person)) return false;
-        Person person = (Person) o;
-        return getId() == person.getId();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }*/

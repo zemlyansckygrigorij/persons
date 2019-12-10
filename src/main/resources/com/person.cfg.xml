@@ -10,7 +10,7 @@
         <property name ="firstName" column = "first_name" type = "String"/>
         <property name ="lastName" column = "last_name" type = "String"/>
         <property name ="dateBirth" column ="date_birth" type="java.util.Date"/>
-        <property name ="marriageInt" column="marriage" type ="java.lang.Integer"/>
+        <property name ="marriage" column="marriage" type ="java.lang.Integer"/>
         <property name ="balance" column="balance" type="java.lang.Double"/>
 
     </class>

@@ -7,13 +7,13 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name="person")
+@Table(name="persons")
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id",updatable = false, nullable = false)
-    private long id;
+    private int id;
 
     @Column(name= "first_name")
     private String firstName;
@@ -25,20 +25,33 @@ public class Person {
     private Date dateBirth;
 
     @Column(name= "marriage")
-    private int marriageInt;
+    private Integer marriage;
 
-    private boolean marriage;
+    public Integer getMarriage() {
+        return marriage;
+    }
+
+    public void setMarriage(boolean bool) {
+        if(bool){
+            this.marriage = 1;
+        }else{
+            this.marriage = 0;
+        }
+
+    }
+
+
 
     @Column(name= "balance")
     private double balance;
 
     public Person() { }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    private void setId(long id) {
+    private void setId(int id) {
         this.id = id;
     }
 
@@ -66,26 +79,10 @@ public class Person {
         this.dateBirth = dateBirth;
     }
 
-    public int getMarriageInt() {
-        return marriageInt;
-    }
 
-    private void setMarriageInt(int marriageInt) {
-        this.marriageInt = marriageInt;
-    }
 
-    public boolean isMarriage() {
-        return marriage;
-    }
 
-    public void setMarriage(boolean marriage) {
-        this.marriage = marriage;
-        if(marriage){
-            setMarriageInt(1);
-        }else{
-            setMarriageInt(0);
-        }
-    }
+
 
     public double getBalance() {
         return balance;
