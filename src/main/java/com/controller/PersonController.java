@@ -12,6 +12,11 @@ import java.util.Map;
 public class PersonController {
     PersonDao personDao = new PersonDao();
 
+    @GetMapping(path ="/")
+    public String getHelloWorld(){
+
+        return "hello world";
+    }
     @GetMapping(path ="/persons")
     public String getPersonsList(Map<String,Object> model){
         model.put("persons",personDao.list());
