@@ -1,0 +1,19 @@
+body{
+    background :lightgoldenrodyellow;
+}
+.main{
+    padding: 40px;
+}
+table{
+    border: solid black 2px;
+}
+th{
+    padding:2px;
+    border: solid black 2px;
+    background : bisque;
+}
+td{
+    padding:2px;
+    border: solid black 1px;
+    background : aliceblue;
+}
