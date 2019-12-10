@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta http-equip = "Content-Type"  content ="text/html" charset="UTF-8">
+    <title>persons</title>
+    <link rel = "stylesheet" type ="text/css" media = "all"th:href="@{/css/style.css}"/>
+    <link rel = "shortcut icon" th:href="@{/images/girl.ico}"/>
+    <script type ="text/javascript" th:src ="@{/js/script.js}"></script>
+</head>
+<body>
+<div th:id="mainPersonssList" th:class = "main">
+    <div th:id="listPersons">
+        <table>
+            <thread>
+                <th>№</th>
+                <th>Имя </th>
+                <th>Фамилия</th>
+                <th>Дата рождения </th>
+                <th>Женат/Замужем</th>
+                <th>Баланс</th>
+            </thread>
+            <tbody>
+            <tr th:each="person: ${persons}" th:ondblclick="update()">
+                <td th:class = "Id" th:text="${person.getId()}">1</td>
+                <td th:text="${person.getFirstName()}">1</td>
+                <td th:text="${person.getLastName()}">1</td>
+                <td th:text="${person.getDateBirth()}">1</td>
+                <td th:text="${person.getMarriage()}">1</td>
+                <td th:text="${person.getBalance()}">1</td>
+            </tr>
+            </tbody>
+        </table>
+        <button th:text="Create" th:onclick = "create()"/>
+    </div>
+</div>
+</body>
+</html>
