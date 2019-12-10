@@ -80,10 +80,6 @@ public class Person {
     }
 
 
-
-
-
-
     public double getBalance() {
         return balance;
     }
