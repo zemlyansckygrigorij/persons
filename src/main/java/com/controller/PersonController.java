@@ -5,6 +5,7 @@ import com.entity.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
@@ -13,8 +14,8 @@ public class PersonController {
     PersonDao personDao = new PersonDao();
 
     @GetMapping(path ="/")
+    @ResponseBody
     public String getHelloWorld(){
-
         return "hello world";
     }
     @GetMapping(path ="/persons")
