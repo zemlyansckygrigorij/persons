@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 public class PersonController {
@@ -24,14 +27,21 @@ public class PersonController {
         model.put("persons",personDao.list());
         return "persons";
     }
+
     @GetMapping(path="/persons/{id}")
-    public String getAccountById(@PathVariable String id, Map<String,Object> model){
-        Person person = null;
-        int idPath = 0 ;
+    public String getPersonById(@PathVariable String id, Map<String,Object> model){
+
         try{
-            idPath = Integer.valueOf(id)  ;
-            person = personDao.get(idPath);
-            model.put("person", person);
+            int idPath = Integer.valueOf(id)  ;
+            /*
+            personDao.list().stream()                // convert list to stream
+                    .filter(person -> person.getId()==idPath)     // we dont like mkyong
+                    .collect(Collectors.toList()).get(0);
+                    */
+            model.put("person",personDao.list().stream()                // convert list to stream
+                    .filter(person -> person.getId()==idPath)     // we dont like mkyong
+                    .findAny());
+                  //  .get(0));
             return "person";
         }catch(Exception e){
             e.printStackTrace();
