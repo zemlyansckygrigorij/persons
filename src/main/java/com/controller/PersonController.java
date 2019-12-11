@@ -18,6 +18,7 @@ public class PersonController {
     public String getHelloWorld(){
         return "hello world";
     }
+
     @GetMapping(path ="/persons")
     public String getPersonsList(Map<String,Object> model){
         model.put("persons",personDao.list());
