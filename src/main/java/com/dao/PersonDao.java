@@ -7,7 +7,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PersonDao implements PersonService {
     @Override
@@ -71,4 +73,19 @@ public class PersonDao implements PersonService {
         List<Person> persons = session.createQuery("From Person").list();
         return persons ;
     }
+
+
+    public Map<Integer, Object> map() {
+
+        List<Person> persons = list();
+        Map<Integer, Object> personMap = new HashMap<>();
+        {
+            for (int i =0;i<persons.size();i++ ) {
+               // Person person = persons.get(i);
+                personMap.put(persons.get(i).getId(), persons.get(i));
+            }
+        }
+        return personMap ;
+    }
+
 }
